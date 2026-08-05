@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cabañas Los Coihues — Circuito Chico, Bariloche</title>
+  <meta name="description" content="Seis cabañas con vista al lago en el Circuito Chico, Bariloche. Reservá directo, sin comisiones." />
+
+  <!-- Google Fonts: serif elegante (Fraunces) + sans limpia (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER / NAV ===================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#hero" class="brand" data-nombre>Cabañas Los Coihues</a>
+
+      <!-- Selector de idioma ES / EN / PT-BR -->
+      <div class="lang-switch" role="group" aria-label="Idioma / Language">
+        <button type="button" class="lang-btn" data-lang="es" aria-pressed="true">ES</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" class="lang-btn" data-lang="pt" aria-pressed="false">PT</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== 1) HERO ===================== -->
+    <section class="hero" id="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p class="hero-eyebrow" data-i18n="footerUbicacion">Ubicación</p>
+        <h1 class="hero-title" data-nombre>Cabañas Los Coihues</h1>
+        <p class="hero-slogan" data-slogan>—</p>
+
+        <!-- Buscador flotante -->
+        <form class="search-box" id="searchBox" novalidate>
+          <div class="search-field">
+            <label for="checkin" data-i18n="buscarCheckin">Check-in</label>
+            <input type="date" id="checkin" name="checkin" required />
+          </div>
+          <div class="search-field">
+            <label for="checkout" data-i18n="buscarCheckout">Check-out</label>
+            <input type="date" id="checkout" name="checkout" required />
+          </div>
+          <div class="search-field">
+            <label for="huespedes" data-i18n="buscarHuespedes">Huéspedes</label>
+            <select id="huespedes" name="huespedes">
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8+</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary search-submit" data-i18n="buscarBtn">
+            Consultar disponibilidad
+          </button>
+          <p class="search-error" id="searchError" role="alert" aria-live="polite"></p>
+        </form>
+
+        <a href="#cabanas" class="hero-scroll" data-i18n="heroCta">Ver cabañas</a>
+      </div>
+    </section>
+
+    <!-- ===================== 2) BARRA DE CONFIANZA ===================== -->
+    <section class="trust" aria-label="Por qué reservar directo">
+      <div class="container trust-grid" id="trustGrid"><!-- render JS --></div>
+    </section>
+
+    <!-- ===================== 3) CABAÑAS ===================== -->
+    <section class="section" id="cabanas">
+      <div class="container">
+        <header class="section-head">
+          <h2 class="section-title" data-i18n="seccionCabanas">Nuestras cabañas</h2>
+          <p class="section-sub" data-i18n="seccionCabanasSub">—</p>
+        </header>
+        <div class="cabin-grid" id="cabinGrid"><!-- render JS --></div>
+      </div>
+    </section>
+
+    <!-- ===================== 4) LA ZONA ===================== -->
+    <section class="section section-alt" id="zona">
+      <div class="container">
+        <header class="section-head">
+          <h2 class="section-title" data-i18n="seccionZona">La zona</h2>
+          <p class="section-sub" data-i18n="seccionZonaSub">—</p>
+        </header>
+
+        <div class="zona-layout">
+          <div class="zona-map">
+            <iframe
+              id="zonaMap"
+              title="Mapa de ubicación"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+          <div class="zona-cards" id="zonaCards"><!-- render JS --></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 5) RESEÑAS ===================== -->
+    <section class="section" id="resenas">
+      <div class="container">
+        <header class="section-head">
+          <h2 class="section-title" data-i18n="seccionResenas">Reseñas</h2>
+        </header>
+        <div class="review-grid" id="reviewGrid"><!-- render JS --></div>
+      </div>
+    </section>
+
+    <!-- ===================== 6) FAQ ===================== -->
+    <section class="section section-alt" id="faq">
+      <div class="container container-narrow">
+        <header class="section-head">
+          <h2 class="section-title" data-i18n="seccionFaq">Preguntas frecuentes</h2>
+        </header>
+        <div class="faq-list" id="faqList"><!-- render JS --></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== 7) FOOTER ===================== -->
+  <footer class="site-footer" id="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h3 class="footer-brand" data-nombre>Cabañas Los Coihues</h3>
+        <p class="footer-slogan" data-slogan>—</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footerContacto">Contacto</h4>
+        <p><a id="footerWa" href="#" target="_blank" rel="noopener">WhatsApp</a></p>
+        <p><a id="footerMail" href="#">—</a></p>
+        <p id="footerTel">—</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footerUbicacion">Ubicación</h4>
+        <p id="footerDir">—</p>
+        <p><a id="footerComoLlegar" href="#" target="_blank" rel="noopener" data-i18n="footerComoLlegar">Cómo llegar</a></p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footerSeguinos">Seguinos</h4>
+        <p class="footer-social">
+          <a id="footerIg" href="#" target="_blank" rel="noopener">Instagram</a>
+          <a id="footerFb" href="#" target="_blank" rel="noopener">Facebook</a>
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> <span data-nombre>Cabañas Los Coihues</span>. <span data-i18n="footerDerechos">Todos los derechos reservados.</span> <span data-i18n="footerDemo">Sitio de demostración.</span></p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flotante fijo -->
+  <a href="#" id="waFloat" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.6-1.4-3.7-3.2-.3-.5.3-.5.8-1.5.1-.2 0-.3 0-.5s-.7-1.7-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 2 .8 2.7.9 3.7.8.6-.1 1.8-.8 2.1-1.5.2-.7.2-1.3.2-1.5-.1-.1-.3-.2-.6-.3z M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18.3c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.3 8.3 0 1 1 12 20.3z"/>
+    </svg>
+    <span class="wa-float-label" data-i18n="whatsappFlotante">Escribinos</span>
+  </a>
+
+  <!-- ===================== MODAL DE CABAÑA ===================== -->
+  <div class="modal" id="cabinModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button type="button" class="modal-close" data-close-modal aria-label="Cerrar">&times;</button>
+      <div class="modal-body" id="modalBody"><!-- render JS --></div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
