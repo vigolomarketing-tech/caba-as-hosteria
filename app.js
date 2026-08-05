@@ -69,7 +69,7 @@
       return `
       <article class="cabin-card">
         <div class="cabin-photo">
-          <img src="https://picsum.photos/seed/${cab.fotoSeed}/800/600"
+          <img src="${cab.foto}"
                alt="Cabaña ${cab.nombre}" loading="lazy" width="800" height="600" />
           <div class="cabin-price-tag">${formatPrice(cab.precioDesde)} <small>/ ${t("porNoche")}</small></div>
         </div>
@@ -95,7 +95,7 @@
     $("#zonaMap").src = CONFIG.negocio.mapaEmbed;
     $("#zonaCards").innerHTML = CONFIG.zona.map((z) => `
       <div class="zona-card">
-        <img src="https://picsum.photos/seed/${z.seed}/300/300" alt="${tf(z.nombre)}" loading="lazy" width="300" height="300" />
+        <img src="${z.foto}" alt="${tf(z.nombre)}" loading="lazy" width="300" height="300" />
         <div class="zona-card-body">
           <h3>${tf(z.nombre)}</h3>
           <p>${tf(z.texto)}</p>
@@ -165,6 +165,8 @@
     $("#footerFb").href = n.redes.facebook;
     // WhatsApp flotante
     $("#waFloat").href = waLink(t("waGeneral"));
+    // Foto del hero (fondo)
+    if (n.heroFoto) $(".hero").style.backgroundImage = `url("${n.heroFoto}")`;
     $("#year").textContent = new Date().getFullYear();
     // Atributo lang del documento
     document.documentElement.lang = lang === "pt" ? "pt-BR" : lang;
@@ -189,8 +191,8 @@
     const capLabel = cab.capacidad === 1 ? t("persona") : t("personas");
     $("#modalBody").innerHTML = `
       <div class="modal-gallery">
-        ${cab.galeriaSeeds.map((s, idx) => `
-          <img src="https://picsum.photos/seed/${s}/800/600" alt="${cab.nombre} — ${t("galeria")} ${idx + 1}" loading="lazy" width="800" height="600" />
+        ${cab.galeria.map((url, idx) => `
+          <img src="${url}" alt="${cab.nombre} — ${t("galeria")} ${idx + 1}" loading="lazy" width="800" height="600" />
         `).join("")}
       </div>
       <div class="modal-content">

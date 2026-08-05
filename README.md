@@ -74,11 +74,22 @@ la fuente, actualizá también el `<link>` de Google Fonts en `index.html`.
 
 ## Imágenes
 
-Son **placeholders** de [picsum.photos](https://picsum.photos) con semillas
-coherentes por sección (`coihue-...`). Para usar fotos reales del cliente,
-reemplazá las URLs por las tuyas en `data.js` (`fotoSeed`, `galeriaSeeds`, `seed`
-de zona) — o cambiá directamente las URLs generadas en `app.js` si querés rutas
-locales tipo `img/cabana-1.jpg`.
+Son fotos reales de [Unsplash](https://unsplash.com) (libres para uso web),
+elegidas para que **coincidan con Bariloche**: lago Nahuel Huapi, cabañas de
+madera, interiores con estufa a leña y los lugares de la zona (Campanario,
+Llao Llao, Colonia Suiza, centro). Se cargan con el helper `IMG("photo-...")`
+definido arriba de `data.js`.
+
+Para usar las **fotos reales del cliente**, en `data.js` reemplazá cada
+`IMG("photo-...")` por la URL de tu foto entre comillas. Ejemplos:
+
+```js
+foto: "fotos/cabana-coihue.jpg",          // archivo local en la carpeta fotos/
+heroFoto: "https://misitio.com/lago.jpg", // o una URL propia
+```
+
+Campos de imagen: `negocio.heroFoto`, y en cada cabaña `foto` (portada) y
+`galeria` (4 fotos del modal); en cada tarjeta de `zona`, `foto`.
 
 ## Publicar
 

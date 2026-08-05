@@ -109,7 +109,8 @@ a { color: var(--color-primary); text-decoration: none; }
   position: relative;
   min-height: calc(100svh - var(--header-h));
   display: flex; align-items: center;
-  background-image: url("https://picsum.photos/seed/coihue-hero-lago/1200/1600");
+  /* La foto de fondo se setea desde data.js (CONFIG.negocio.heroFoto). */
+  background-color: var(--color-primary-dark);
   background-size: cover; background-position: center;
   color: var(--color-white);
   padding: 40px 0;

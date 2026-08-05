@@ -11,7 +11,20 @@
 
    Nota sobre idiomas: los campos traducibles son objetos { es, en, pt }.
    El sitio muestra el idioma activo sin recargar la página.
+
+   FOTOS: usamos el helper IMG(...) de abajo con imágenes reales de Unsplash
+   (libres para uso web). Para poner las fotos REALES del cliente, reemplazá
+   la llamada IMG("...") por la URL de tu foto entre comillas, por ejemplo:
+       foto: "fotos/cabana-coihue.jpg",
+   o dejá IMG con otra imagen de Unsplash. Nada más que tocar.
    ========================================================================= */
+
+/* Helper de imágenes: arma la URL de Unsplash con el tamaño pedido.
+   IMG("photo-xxxx")        -> foto de 800px
+   IMG("photo-xxxx", 1600)  -> foto de 1600px (para el hero) */
+function IMG(id, w) {
+  return "https://images.unsplash.com/" + id + "?w=" + (w || 800) + "&q=80&auto=format&fit=crop";
+}
 
 const CONFIG = {
 
@@ -33,6 +46,9 @@ const CONFIG = {
     // Teléfono visible (formato libre, para mostrar en el footer).
     telefonoVisible: "+54 9 11 0000-0000",
     email: "reservas@cabanasloscoihues.com.ar",
+
+    // Foto del hero (fondo a pantalla completa). Lago Nahuel Huapi / montañas.
+    heroFoto: IMG("photo-1691712988368-ab9cb6cd6ef3", 1600),
 
     // Dirección visible y coordenadas (las coords son solo informativas).
     direccion: "Circuito Chico, Km 18 — San Carlos de Bariloche, Río Negro",
@@ -105,12 +121,12 @@ const CONFIG = {
   cabanas: [
     {
       nombre: "Coihue",
-      fotoSeed: "coihue-cabin-coihue",
-      galeriaSeeds: [
-        "coihue-coihue-1",
-        "coihue-coihue-2",
-        "coihue-coihue-3",
-        "coihue-coihue-4",
+      foto: IMG("photo-1570793005386-840846445fed"),      // cabaña de madera
+      galeria: [
+        IMG("photo-1570793005386-840846445fed"),          // exterior
+        IMG("photo-1631941392209-70cad44ecfb7"),          // interior cálido
+        IMG("photo-1640350136891-5f318d2776f6"),          // lago desde el ventanal
+        IMG("photo-1697807713050-b0e7d00956a2"),          // estufa a leña
       ],
       capacidad: 2,
       m2: 38,
@@ -129,12 +145,12 @@ const CONFIG = {
     },
     {
       nombre: "Arrayán",
-      fotoSeed: "coihue-cabin-arrayan",
-      galeriaSeeds: [
-        "coihue-arrayan-1",
-        "coihue-arrayan-2",
-        "coihue-arrayan-3",
-        "coihue-arrayan-4",
+      foto: IMG("photo-1648598037101-f754a734b6b8"),      // deck con vista al lago
+      galeria: [
+        IMG("photo-1648598037101-f754a734b6b8"),          // deck / parrilla
+        IMG("photo-1518107784960-eb57c673a7ba"),          // cabaña en el bosque
+        IMG("photo-1631630259742-c0f0b17c6c10"),          // interior con estufa
+        IMG("photo-1666066378095-6fad8fc100ea"),          // muelle al lago
       ],
       capacidad: 4,
       m2: 55,
@@ -153,12 +169,12 @@ const CONFIG = {
     },
     {
       nombre: "Ñire",
-      fotoSeed: "coihue-cabin-nire",
-      galeriaSeeds: [
-        "coihue-nire-1",
-        "coihue-nire-2",
-        "coihue-nire-3",
-        "coihue-nire-4",
+      foto: IMG("photo-1630890386406-8ccf8d6b8b91"),      // casa junto al lago
+      galeria: [
+        IMG("photo-1630890386406-8ccf8d6b8b91"),          // exterior luminoso
+        IMG("photo-1631941150945-837cb81fc7e2"),          // living con ventanales
+        IMG("photo-1640350136891-5f318d2776f6"),          // vista al lago
+        IMG("photo-1568399180632-34ab463ba5be"),          // bosque y lago
       ],
       capacidad: 4,
       m2: 58,
@@ -177,12 +193,12 @@ const CONFIG = {
     },
     {
       nombre: "Radal",
-      fotoSeed: "coihue-cabin-radal",
-      galeriaSeeds: [
-        "coihue-radal-1",
-        "coihue-radal-2",
-        "coihue-radal-3",
-        "coihue-radal-4",
+      foto: IMG("photo-1637687222430-ca092fb9062a"),      // cabaña de troncos en el bosque
+      galeria: [
+        IMG("photo-1637687222430-ca092fb9062a"),          // exterior
+        IMG("photo-1696860740767-f4211c9209f4"),          // hogar a leña
+        IMG("photo-1631630259742-c0f0b17c6c10"),          // living
+        IMG("photo-1774546369330-c4040c125e2c"),          // lago
       ],
       capacidad: 5,
       m2: 68,
@@ -201,12 +217,12 @@ const CONFIG = {
     },
     {
       nombre: "Maitén",
-      fotoSeed: "coihue-cabin-maiten",
-      galeriaSeeds: [
-        "coihue-maiten-1",
-        "coihue-maiten-2",
-        "coihue-maiten-3",
-        "coihue-maiten-4",
+      foto: IMG("photo-1518107784960-eb57c673a7ba"),      // cabaña familiar entre pinos
+      galeria: [
+        IMG("photo-1518107784960-eb57c673a7ba"),          // exterior
+        IMG("photo-1648598037101-f754a734b6b8"),          // quincho / deck
+        IMG("photo-1631941392209-70cad44ecfb7"),          // interior cálido
+        IMG("photo-1666066378095-6fad8fc100ea"),          // lago
       ],
       capacidad: 6,
       m2: 82,
@@ -225,12 +241,12 @@ const CONFIG = {
     },
     {
       nombre: "Lenga",
-      fotoSeed: "coihue-cabin-lenga",
-      galeriaSeeds: [
-        "coihue-lenga-1",
-        "coihue-lenga-2",
-        "coihue-lenga-3",
-        "coihue-lenga-4",
+      foto: IMG("photo-1669575508940-532856dc184a"),      // gran cabaña sobre el lago
+      galeria: [
+        IMG("photo-1669575508940-532856dc184a"),          // exterior con vista panorámica
+        IMG("photo-1631941150945-837cb81fc7e2"),          // living con ventanales
+        IMG("photo-1696860740767-f4211c9209f4"),          // doble hogar a leña
+        IMG("photo-1691712988368-ab9cb6cd6ef3"),          // panorámica del lago
       ],
       capacidad: 8,
       m2: 105,
@@ -254,7 +270,7 @@ const CONFIG = {
      ---------------------------------------------------------------------- */
   zona: [
     {
-      seed: "coihue-zona-campanario",
+      foto: IMG("photo-1568399180632-34ab463ba5be", 600), // panorámica lago + cerro
       minutos: 5,
       nombre: {
         es: "Cerro Campanario",
@@ -268,7 +284,7 @@ const CONFIG = {
       },
     },
     {
-      seed: "coihue-zona-llaollao",
+      foto: IMG("photo-1651640821812-6328be4b6994", 600), // gran hotel de montaña
       minutos: 10,
       nombre: { es: "Llao Llao", en: "Llao Llao", pt: "Llao Llao" },
       texto: {
@@ -278,7 +294,7 @@ const CONFIG = {
       },
     },
     {
-      seed: "coihue-zona-colonia-suiza",
+      foto: IMG("photo-1630890386406-8ccf8d6b8b91", 600), // casas alpinas junto al lago
       minutos: 15,
       nombre: {
         es: "Colonia Suiza",
@@ -292,7 +308,7 @@ const CONFIG = {
       },
     },
     {
-      seed: "coihue-zona-centro",
+      foto: IMG("photo-1702263525855-385a520842cf", 600), // catedral y centro de Bariloche
       minutos: 20,
       nombre: {
         es: "Centro de Bariloche",
